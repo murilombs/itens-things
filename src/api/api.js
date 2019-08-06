@@ -2,6 +2,13 @@ const azurePhotoSave = require('../azureService/azureStoragePhotos').azurePhotoS
 const Validator = require('../utils/validationForm').ValidationContract;
 
 module.exports = (app, repository) => {
+
+    app.get('/', (req, res) => {
+        res.json({
+            status: 'OK'
+        })
+    })
+
     /** GET all itens by Location
      * A localização dos itens e passada em um array
      * com longitude em 0
