@@ -1,7 +1,7 @@
 {
-    "Name": "AtlasPeering/ca9d76ce-a995-4883-94aa-3d285c381438/things_project/things",
+    "Name": "AtlasPeering/ca9d76ce-a995-4883-94aa-3d285c381438/things_project/itensNet",
     "IsCustom": true,
-    "Description": "Grants MongoDB access to manage peering connections on network /subscriptions/ca9d76ce-a995-4883-94aa-3d285c381438/resourceGroups/things_project/providers/Microsoft.Network/virtualNetworks/things",
+    "Description": "Grants MongoDB access to manage peering connections on network /subscriptions/ca9d76ce-a995-4883-94aa-3d285c381438/resourceGroups/things_project/providers/Microsoft.Network/virtualNetworks/itensNet",
     "Actions": [
         "Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read",
         "Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write",
@@ -9,6 +9,6 @@
         "Microsoft.Network/virtualNetworks/peer/action"
     ],
     "AssignableScopes": [
-        "/subscriptions/ca9d76ce-a995-4883-94aa-3d285c381438/resourceGroups/things_project/providers/Microsoft.Network/virtualNetworks/things"
+        "/subscriptions/ca9d76ce-a995-4883-94aa-3d285c381438/resourceGroups/things_project/providers/Microsoft.Network/virtualNetworks/itensNet"
     ]
 }
