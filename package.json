@@ -4,8 +4,8 @@
   "description": "management of items",
   "main": "index.js",
   "scripts": {
-    "start": "node index",
-    "test": "node index.test | tap-spec"
+    "start": "nodemon src/index",
+    "test": "node /srcindex.test | tap-spec"
   },
   "author": "murilo-mbs",
   "license": "ISC",
@@ -22,8 +22,10 @@
     "md5": "^2.2.1",
     "mongoose": "^5.5.15",
     "morgan": "^1.9.1",
+    "nodemon": "^1.19.1",
     "supertest": "^4.0.2",
     "tap-spec": "^5.0.0",
-    "tape": "^4.11.0"
+    "tape": "^4.11.0",
+    "typescript": "^3.5.3"
   }
 }

@@ -1,5 +1,5 @@
 const azurePhotoSave = require('../azureService/azureStoragePhotos').azurePhotoSave;
-const Validator = require('../utils/validationForm').ValidationContract;
+const Validacao = require('../utils/validation').default
 
 module.exports = (app, repository) => {
 
@@ -35,14 +35,13 @@ module.exports = (app, repository) => {
 
     /** POST new item */
     app.post('/itens/', async(req, res, next) => {
-        let contract = new Validator();
-        contract.isRequired(req.body.name, 'warming: Name field is required');
-        contract.hasMinLen(req.body.name, 8, null);
-        contract.isRequired(req.body.description, 'warming: Description field is required');
-        contract.hasMinLen(req.body.description, 8, null);
+        Validacao.isRequired(req.body.name, 'warming: Name field is required');
+        Validacao.hasMinLen(req.body.name, 8, 'warming: Name field is unsuficient');
+        Validacao.isRequired(req.body.description, 'warming: Description field is required');
+        Validacao.isRequired(req.body.owner, 'warming: Owner is required');
 
-        if (!contract.isValid()) {
-            res.status(400).send(contract.errors()).end()
+        if (!Validacao.isValid()) {
+            res.status(400).send(Validacao.error()).end()
             return
         }
         try {
