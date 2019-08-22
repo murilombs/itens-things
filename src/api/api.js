@@ -36,7 +36,7 @@ module.exports = (app, repository) => {
     /** POST new item */
     app.post('/itens/', async(req, res, next) => {
         Validacao.isRequired(req.body.name, 'warming: Name field is required');
-        Validacao.hasMinLen(req.body.name, 8, 'warming: Name field is unsuficient');
+        Validacao.hasMinLen(req.body.name, 5, 'warming: Name field is unsuficient');
         Validacao.isRequired(req.body.description, 'warming: Description field is required');
         Validacao.isRequired(req.body.owner, 'warming: Owner is required');
 
@@ -52,7 +52,10 @@ module.exports = (app, repository) => {
                 description: req.body.description,
                 itensImages: 'https://thingstorage.blob.core.windows.net/itens-pictures/' + await azurePhotoSave(req.body.itensImages),
                 delivery: req.body.delivery,
-                location: req.body.location,
+                location: {
+                    type: "Point",
+                    coordinates: req.body.location
+                },
                 owner: req.body.owner
             }, function(err, done) {
                 if (err) return next(err);

@@ -20,8 +20,16 @@ exports.getAllItensByLocation = (lgt, lat, callback) => {
                    $minDistance: 100,
                    $maxDistance: 5000
                  }
-              }
-          }).toArray(callback)
+              },
+              availability: true,
+          }).project({
+              name:1, 
+              timeCust: 1, 
+              itensImages: 1, 
+              description: 1, 
+              delivery: 1,
+              owner: 1
+            }).toArray(callback)
     })
 }
 
@@ -43,7 +51,7 @@ exports.getItensByName = (name = String(), lgt, lat, callback) => {
 
 /** Adicionar um novo item seguindo o Schemma */
 exports.saveNewItem = (data, callback) => {
-    let item = Item(data);
+    let item = new Item(data);
     try {
         mongodb.connect(function(err, db) {
             db.collection(collection).insertOne(item, callback)
